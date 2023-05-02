@@ -1,25 +1,43 @@
+import { useSelector } from "react-redux";
+import { faqList } from "../../modules/faq/store/index.js";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
 import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 
 const Untitled1 = () => {
+  const {
+    entities: FaqList
+  } = useSelector(state => state.FaqList);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(faqList());
+  }, []);
   const navigation = useNavigation();
   return <SafeAreaView style={styles.safeArea}>
-        <ScrollView contentContainerStyle={{
-      backgroundColor: '#f0f0f1',
+      <ScrollView contentContainerStyle={{
+      backgroundColor: "#f0f0f1",
       padding: 10,
-      position: 'relative',
+      position: "relative",
       flex: 1
-    }}><Pressable onPress={() => {
+    }}>
+        <Pressable onPress={() => {
         navigation.navigate("barcodeScanner");
-      }}><View style={styles.SgbAZtwm}><Text style={styles.pORyJZCx}>{"click"}</Text></View></Pressable></ScrollView>
+      }}>
+          <View style={styles.SgbAZtwm}>
+            <Text style={styles.pORyJZCx}>{"click"}</Text>
+          </View>
+        </Pressable>
+        <Text style={styles.TKaAdGfP}>{FaqList[0].title}</Text>
+      <View style={styles.PnGbBYNC}></View></ScrollView>
     </SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
   safeArea: {
-    height: '100%'
+    height: "100%"
   },
   SgbAZtwm: {
     height: 60,
@@ -38,6 +56,20 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: -0.5,
     top: 5
+  },
+  TKaAdGfP: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  PnGbBYNC: {
+    height: 60,
+    width: 140,
+    backgroundColor: "#E4E4E4",
+    borderRadius: 0,
+    color: "#777777"
   }
 });
 export default Untitled1;

@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
   barCode: {
     justifyContent: "space-between",
     alignItems: "center",
-    height: "50%",
-    width: "100%",
+    height: 396,
+    width: 1332,
     backgroundColor: "#fff",
     borderRadius: 10,
     alignSelf: "center",
