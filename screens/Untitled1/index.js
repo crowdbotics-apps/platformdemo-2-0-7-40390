@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
@@ -10,7 +9,6 @@ const Untitled1 = () => {
   const {
     entities: FaqList
   } = useSelector(state => state.FaqList);
-  const dispatch = useDispatch();
   useEffect(() => {}, []);
   const navigation = useNavigation();
   return <SafeAreaView style={styles.safeArea}>
@@ -19,6 +17,8 @@ const Untitled1 = () => {
       padding: 10,
       position: "relative",
       flex: 1
+    }} onPress={() => {
+      navigation.navigate("Support & FAQ");
     }}>
         <Pressable onPress={() => {
         navigation.navigate("barcodeScanner");
