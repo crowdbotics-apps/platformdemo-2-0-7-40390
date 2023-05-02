@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { faqList } from "../../modules/faq/store/index.js";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Text } from "react-native";
@@ -12,9 +11,7 @@ const Untitled1 = () => {
     entities: FaqList
   } = useSelector(state => state.FaqList);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(faqList());
-  }, []);
+  useEffect(() => {}, []);
   const navigation = useNavigation();
   return <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={{
